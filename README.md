@@ -1,6 +1,6 @@
 # Page Visibility API for Defold (HTML5)
 
-This extension for [the Defold game engine](https://defold.com/) provides a way to detect when the page is visible or hidden.
+This extension for [the Defold game engine](https://defold.com/) provides a way to detect when the page is visible or hidden using [Page Visibility API](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API).
 
 Typically, this is used in HTML5 games to detect page visibility and pause/resume audio and other systems when the page is hidden.
 
