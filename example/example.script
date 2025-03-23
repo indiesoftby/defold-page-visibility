@@ -1,0 +1,32 @@
+function init(self)
+    if not page_visibility then
+        print("Page visibility extension is only available on HTML5")
+        return
+    end
+
+    print("Current page visibility state: " .. (page_visibility.state() == page_visibility.STATE_VISIBLE and "visible" or "hidden"))
+
+    page_visibility.set_listener(function()
+        local state = page_visibility.state()
+        if state == page_visibility.STATE_VISIBLE then
+            print("Page visibility changed: visible")
+        elseif state == page_visibility.STATE_HIDDEN then
+            print("Page visibility changed: hidden")
+        end
+    end)
+end
+
+function final(self)
+end
+
+function update(self, dt)
+end
+
+function on_message(self, message_id, message, sender)
+end
+
+function on_input(self, action_id, action)
+end
+
+function on_reload(self)
+end

@@ -1,0 +1,32 @@
+[bootstrap]
+main_collection = /example/example.collectionc
+
+[script]
+shared_state = 1
+
+[display]
+width = 960
+height = 640
+high_dpi = 1
+
+[project]
+title = ext_page_visibility
+version = dev
+developer = Indiesoft LLC
+
+[library]
+include_dirs = page_visibility
+
+[input]
+game_binding = /builtins/input/all.input_bindingc
+
+[html5]
+heap_size = 32
+cssfile = /builtins/manifests/web/dark_theme.css
+scale_mode = fit
+
+[render]
+clear_color_red = 0.25
+clear_color_green = 0.25
+clear_color_blue = 0.25
+

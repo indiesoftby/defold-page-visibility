@@ -1,0 +1,29 @@
+- name: page_visibility
+  type: table
+  desc: The Page Visibility API for Defold
+  members:
+
+  - name: set_listener
+    type: function
+    desc: Sets or removes the listener for the page visibility change event.
+    parameters:
+    - name: callback
+      type: function
+      desc: The callback to be called when the page visibility changes.
+      optional: true
+
+  - name: state
+    type: function
+    desc: Returns the current state of the page visibility.
+    returns:
+    - name: state
+      type: number
+      desc: The current state of the page visibility.
+
+  - name: STATE_VISIBLE
+    type: number
+    desc: The page is visible.
+
+  - name: STATE_HIDDEN
+    type: number
+    desc: The page is hidden.
