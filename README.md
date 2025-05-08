@@ -4,6 +4,16 @@ This extension for [the Defold game engine](https://defold.com/) provides a way 
 
 Typically, this is used in HTML5 games to detect page visibility and pause/resume audio and other systems when the page is hidden.
 
+## Why use Page Visibility API instead of Window Focus/Blur events?
+
+While Defold provides `window.set_listener` to detect focus and blur events, using Page Visibility API offers a more appropriate behavior for games, especially when embedded in iframes:
+
+- **Window Focus/Blur** (in Defold: `window.WINDOW_EVENT_FOCUS_LOST`/`window.WINDOW_EVENT_FOCUS_GAINED`) events will trigger even when your game is running in an iframe and the user clicks on other elements on the same page. This can lead to unintended pausing of your game when the player is still viewing it.
+
+- **Page Visibility API** only triggers when the user actually switches tabs or minimizes the browser window. This creates a more natural experience for players, as the game only pauses when they're truly not viewing it.
+
+This difference is particularly important for games embedded on game portals or websites with multiple interactive elements.
+
 ## Setup
 
 First add this extension as a dependency to your `game.project`:
