@@ -1,3 +1,5 @@
+[![Page Visibility API Cover](cover.jpg)](https://github.com/indiesoftby/defold-page-visibility)
+
 # Page Visibility API for Defold (HTML5)
 
 This extension for [the Defold game engine](https://defold.com/) provides a way to detect when the page is visible or hidden using [Page Visibility API](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API).
@@ -16,7 +18,7 @@ This difference is particularly important for games embedded on game portals or 
 
 ## Setup
 
-First add this extension as a dependency to your `game.project`:
+First add this extension as a dependency to your `game.project` and click `Project` / `Fetch Libraries`:
 
     https://github.com/indiesoftby/defold-page-visibility/archive/main.zip
 
