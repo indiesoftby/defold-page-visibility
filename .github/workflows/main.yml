@@ -23,6 +23,8 @@ jobs:
       - name: Build 🔧
         env:
           DEFOLD_BOB_SHA1: ${{ secrets.DEFOLD_BOB_SHA1 }}
+          PLATFORM: js-web
+          ARCHITECTURES: wasm-web
         run: |
           lsb_release -a
 
@@ -34,11 +36,14 @@ jobs:
           if [ "${BOB_LOCAL_SHA1}" != "${BOB_SHA1}" ]; then wget --progress=dot:mega -O build/bundle/bob.jar "https://d.defold.com/archive/${BOB_SHA1}/bob/bob.jar"; fi
           java -jar build/bundle/bob.jar --version
 
+          # Get game.project title
+          TITLE=$(awk -F "=" '/^title/ {gsub(/[ \r\n\t]/, "", $2); print $2}' game.project)
+
           # Build the project
-          java -jar build/bundle/bob.jar --email a@b.com --auth 123 --texture-compression true --bundle-output build/bundle/js-web --platform js-web --architectures wasm-web --archive --variant debug resolve build bundle
+          java -jar build/bundle/bob.jar --email a@b.com --auth 123 --texture-compression true --bundle-output build/bundle/${PLATFORM} --platform ${PLATFORM} --architectures ${ARCHITECTURES} --archive --variant release resolve build bundle
 
           # Move to the public directory
-          mv build/bundle/js-web/* build/bundle/public
+          mv "build/bundle/${PLATFORM}/${TITLE}" build/bundle/public
 
       - name: Upload Artifact 📦
         uses: actions/upload-artifact@v4
